@@ -1,0 +1,731 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Oracle App Technical</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="11b63092-dc2d-4045-bcb8-ae263d5afc51" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👨🏻‍💻</span></div><h1 class="page-title">Oracle App Technical</h1><p class="page-description"></p></header><div class="page-body"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>ERP: Enterprise Resource Planning - (DAY 1)</strong></summary><div class="indented"><p id="b6a823e0-0952-440f-9969-560a4638be15" class=""><mark class="highlight-default">Enterprise resource planning is software that use to manage and track day-to-day business activities such as accounting, project management, risk management, supply chain operations, etc.</mark></p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Major reason for choosing ERP</strong></summary><div class="indented"><ol type="1" id="75983c97-788e-4d78-b63e-276c5d3d239c" class="numbered-list" start="1"><li><mark class="highlight-default">Integrate financial information: generate the trade report, profit and loss report.</mark></li></ol><ol type="1" id="2e4aa177-768f-48b1-987c-592dd491d995" class="numbered-list" start="2"><li><mark class="highlight-default">Customer order information.</mark></li></ol><ol type="1" id="ebb91367-936a-490a-aef1-046667380076" class="numbered-list" start="3"><li><mark class="highlight-default">Standardize and speed up the operation process.</mark></li></ol><ol type="1" id="ea9de75f-26cd-4c17-a532-08a68b12e509" class="numbered-list" start="4"><li><mark class="highlight-default">Reduce inventory: the process of lowering inventory levels to a point where they meet customer demand.</mark></li></ol><ol type="1" id="d496e62a-9ad5-4767-9044-25ff48e550a9" class="numbered-list" start="5"><li><mark class="highlight-default">Standardize HR information: maintain all information.</mark></li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Type of modules in oracle ERP</strong></summary><div class="indented"><p id="24ad0527-7f96-4211-9036-1cef2b0e289d" class="">Functional ERP Modules:</p><ol type="1" id="65b056b4-5a2f-4ef9-928e-4a94d7307512" class="numbered-list" start="1"><li><mark class="highlight-default">Financial Management.</mark></li></ol><ol type="1" id="cea6a253-f863-4fa0-aab9-53e799dde5e1" class="numbered-list" start="2"><li><mark class="highlight-default">Supply Chain Management.</mark></li></ol><ol type="1" id="ed917458-65a2-4558-b722-09511f81b166" class="numbered-list" start="3"><li><mark class="highlight-default">Project Portfolio Management.</mark></li></ol><ol type="1" id="80b57e8c-0c18-4fce-bc7e-d2a9694bb00a" class="numbered-list" start="4"><li><mark class="highlight-default">Human Capital / Human Resource Management.</mark></li></ol><ol type="1" id="760d7e52-00d5-4f2f-a053-d4678b58e401" class="numbered-list" start="5"><li><mark class="highlight-default">Customer Relationship Management.</mark></li></ol><ol type="1" id="4c85d5f5-bb25-4223-8dd2-f289f7ade6ab" class="numbered-list" start="6"><li><mark class="highlight-default">Procurement: Purchasing, sourcing, etc.</mark></li></ol><p id="1123fcbd-5ddf-488b-b4a4-5eee000ce396" class="block-color-default">Technical ERP Modules:</p><ol type="1" id="72e71f99-6c81-4f12-ac7b-15a63b26242e" class="block-color-default numbered-list" start="1"><li><mark class="highlight-gray">Basic Components.</mark></li></ol><ol type="1" id="ce16d74f-56ae-4f96-bd87-927314dca9af" class="block-color-default numbered-list" start="2"><li><mark class="highlight-gray">API.</mark></li></ol><ol type="1" id="ada3ef56-10df-435d-95e3-a0f8d500f9cd" class="block-color-default numbered-list" start="3"><li><mark class="highlight-gray">Security Module.</mark></li></ol><ol type="1" id="04187a0a-805d-4ff4-a5bc-5fd8edd4c57b" class="block-color-default numbered-list" start="4"><li><mark class="highlight-gray">Real time Analytic Module.</mark></li></ol><ol type="1" id="3363d49e-cfdf-4df4-ac8e-710cf3591615" class="block-color-default numbered-list" start="5"><li><mark class="highlight-gray">Business intelligence.</mark></li></ol><ol type="1" id="683f5455-bc95-4e18-9af6-1decdf1e9425" class="block-color-default numbered-list" start="6"><li><mark class="highlight-gray">Networking interface Module.</mark></li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><mark class="highlight-red"><strong>Role of Oracle app technical consultant</strong></mark></summary><div class="indented"><ul id="c000a18b-02f7-41de-8efe-7d3e62ca2348" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Receive the functional document (FD) from the client.</mark></li></ul><ul id="3a4370c6-4fcb-4797-97c0-2b1cfaa5f7b0" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Understand the requirement.</mark></li></ul><ul id="8de214da-1412-4a53-9345-e7b21afb41da" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Prepare the Technical Document (TD).</mark></li></ul><ul id="2ed61f05-167e-4d80-81a1-f335fc3babd5" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Develop the object.</mark></li></ul><ul id="dfc10374-924e-4fea-b169-8dc1e889d1b4" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Test the object.</mark></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">What is AOL ? - (DAY 2)</mark></summary><div class="indented"><ul id="8e2ae12e-cf34-4ac7-bd1f-65ee05e400e5" class="block-color-default bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">AOL stands for Application Object Library</mark></li></ul><ul id="a001632e-48fc-4208-a92a-b721f932ea59" class="block-color-default bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">AOL is Back bond for Oracle Application Frontend.</mark></li></ul><ul id="d3a3d67b-79ee-4a75-b1c6-c3b58bdc2984" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">AOL provides common features for e-business suite, product through library for reuse object, program, code.</mark></li></ul><ul id="852507d9-42e1-47be-99a9-ef5691c82c84" class="block-color-default bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">AOL is a collection of pre-built application components and facilities and it consists of </mark><mark class="highlight-default"><strong>forms,</strong></mark><mark class="highlight-default"> </mark><mark class="highlight-default"><strong>subroutines, concurrent programs and reports, database tables and objects, messages, menus, responsibilities, flex filed definitions, various guides and library functions</strong></mark><mark class="highlight-default">.</mark></li></ul><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><mark class="highlight-red"><strong>System Administrator</strong></mark></summary><div class="indented"><ol type="1" id="03276594-4e11-4569-a315-29b6726e9af9" class="numbered-list" start="1"><li><mark class="highlight-default">Creation of User</mark></li></ol><ol type="1" id="6e6d5ed9-d953-4f87-8b94-98aabc7f91db" class="numbered-list" start="2"><li><mark class="highlight-default">Security Groups</mark></li></ol><ol type="1" id="f368f8a0-95b5-4f9c-9c17-b9734f6e48a7" class="numbered-list" start="3"><li><mark class="highlight-default">Responsibilities</mark></li></ol><ol type="1" id="1b1197a8-e205-4763-9ca2-977b10662727" class="numbered-list" start="4"><li><mark class="highlight-default">Concurrent Manager</mark></li></ol><ol type="1" id="1c355052-6507-4eae-80aa-52c21cd1bb24" class="numbered-list" start="5"><li><mark class="highlight-default">Program and Reports</mark></li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><mark class="highlight-red"><strong>Application Developer</strong></mark></summary><div class="indented"><ol type="1" id="ac9a779f-2a51-43e8-b86e-5b0775fdfd6b" class="numbered-list" start="1"><li><mark class="highlight-default">Forms</mark></li></ol><ol type="1" id="ad8af268-f52b-4e2b-bbc9-1e6a46d03cb2" class="numbered-list" start="2"><li><mark class="highlight-default">Menus and Submenu</mark></li></ol><ol type="1" id="6979dcdf-0008-4604-861e-1ac0fa1a7e8a" class="numbered-list" start="3"><li><mark class="highlight-default">Form Function</mark></li></ol><ol type="1" id="9c58ff9b-79f6-4379-ab2b-06e7388a8c4e" class="numbered-list" start="4"><li><mark class="highlight-default">Custom Application Creation</mark></li></ol><p id="16c60090-69fb-41a7-97dc-c0f0f77d6580" class="">
+</p><figure id="91e8e76a-75bf-401d-a586-d9352bd84d4c" class="image"><a href="Image/Untitled.png"><img style="width:623px" src="Image/Untitled.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><mark class="highlight-red">Oracle Application Login Credentail</mark></summary><div class="indented"><p id="544365fa-a1b6-4dbe-9dc2-3e3c6af0a65d" class=""><mark class="highlight-red">URL:</mark> <mark class="highlight-blue"><a href="http://vishnu.depthconsulting.in:8014/">http://vishnu.depthconsulting.in:8014/</a></mark></p><p id="d816716c-8fe3-46d7-8b8a-6c4e0f65ade0" class=""><mark class="highlight-red">Username: </mark><mark class="highlight-default">dcs22</mark></p><p id="c5e4b387-70b4-4c2e-bd40-c534c39a95db" class=""><mark class="highlight-red">Password: </mark><mark class="highlight-default">password1234</mark></p><p id="6c78bc79-dc6d-463d-bfbc-ebc7e7e71de4" class="">
+</p><p id="aca6b489-51ce-48fe-8430-9cd9d09dde3d" class=""><mark class="highlight-red">Creation of New User:</mark></p><ol type="1" id="b391ef11-0208-49bd-ae39-25ff059f7c42" class="numbered-list" start="1"><li><mark class="highlight-default">Open the internet Explorer connect to Oracle Applications</mark></li></ol><ol type="1" id="cb3f17b1-bd50-4bb2-8c13-962593840e96" class="numbered-list" start="2"><li><mark class="highlight-default">Enter the User Name  : dcs22</mark><p id="1c14e53d-b82b-4337-b57b-0fd9607d4ef8" class=""><mark class="highlight-default">Password : password1234</mark></p></li></ol><ol type="1" id="b027a97f-261e-4b28-92a2-4afe9c6b486b" class="numbered-list" start="3"><li><mark class="highlight-default">Select the Responsibility called &#x27;System Administrator&#x27;</mark></li></ol><ol type="1" id="a3cbddc2-3cdc-4f87-82de-fbc7c458d075" class="numbered-list" start="4"><li><mark class="highlight-default">Open the User form.</mark><p id="42f08530-440a-44c1-9da8-6932a89320d1" class=""><mark class="highlight-default">Security =&gt; User =&gt;Define</mark></p></li></ol><ol type="1" id="40f3236c-188c-40e3-b1ce-cbbec090f806" class="numbered-list" start="5"><li><mark class="highlight-default">Enter User Name and Password attach the Responsibilities whatever we required</mark><p id="3822a507-4927-44dd-9838-51d3c1cc2f1b" class=""><mark class="highlight-default">for example - System Administrator</mark><div class="indented"><p id="0ed30e6f-3f55-424e-89d8-b23d5191b080" class="">                 <mark class="highlight-default">Application Developer</mark></p></div></p></li></ol><ol type="1" id="05803e5b-05b0-4707-aa07-1ba810b7d04a" class="numbered-list" start="6"><li><mark class="highlight-default">Exit from the Application</mark><p id="8c7aebab-ee21-4eda-b447-123e39c8eb22" class=""><mark class="highlight-default">File =&gt; Exit Oracle Applications</mark></p></li></ol><ol type="1" id="29575157-d50c-43e9-a10b-257bcf2669a2" class="numbered-list" start="7"><li><mark class="highlight-default">Connect to Oracle apps enter new user name password system will shows the message</mark><p id="d8a4038d-9ebc-4454-a914-b72cca25e4d0" class=""><mark class="highlight-default">like  &#x27;Password Has Expired&#x27;</mark></p></li></ol><ol type="1" id="8e2c0ffe-34e5-4228-a1c0-4ce8958a0c67" class="numbered-list" start="8"><li><mark class="highlight-default">Enter the New Password Press Ok Button</mark></li></ol><p id="d2bc3498-8199-4c08-82a5-dfc73679a03f" class="">
+</p><p id="b82fbf23-1d05-452e-8759-fc32f8937305" class=""><mark class="highlight-default">SELECT * FROM FND_USER</mark></p><p id="c2b9e118-776e-4a12-a373-ca7107d3927c" class=""><mark class="highlight-default">WHERE USER_NAME = &#x27;DCS23&#x27;;</mark></p></div></details><p id="0046f447-2c53-4f28-8d89-a7686fcfaf44" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">AOL Components - (DAY 3)</summary><div class="indented"><p id="a65d057b-7488-44f9-8c08-5551b2d54dbb" class=""><mark class="highlight-default"><strong>AOL also known as Foundation (FND) module</strong></mark></p><ul id="eeba44ff-502b-48ee-bccf-65a02381e61c" class="toggle"><li><details open=""><summary>Lookup</summary><p id="73458702-c6b9-4e27-9f67-a5e4d06c68ab" class=""><mark class="highlight-default">Lookups are </mark><mark class="highlight-default"><strong>lists of values in applications</strong></mark><mark class="highlight-default">. You define a list of values as a lookup type consisting of a set of lookup codes, each code&#x27;s translated meaning, and optionally a tag. End users see the list of translated meanings as the available values for an object.</mark></p></details></li></ul><ul id="c800e213-8838-48c8-9e65-d90d7a06a3ff" class="toggle"><li><details open=""><summary>Value Set</summary><p id="db38d30f-6c09-44c1-875f-cf7a67d7cfd3" class=""><mark class="highlight-default">A value set in Oracle Applications is a list of values with validations. It&#x27;s used to restrict the values a user can enter. For example, when submitting a concurrent program, you can associate a value set to a parameter to ensure the user only enters valid values.</mark></p></details></li></ul><ul id="dec3f18b-3987-4dd2-bcc4-2b09536d2d7a" class="toggle"><li><details open=""><summary>Creating User</summary><p id="31c35019-114c-4a28-875a-d84b8bdf50a3" class="">
+</p></details></li></ul><ul id="1b274535-150a-4d59-8f27-1df0e8d47da5" class="toggle"><li><details open=""><summary>Message</summary><p id="33707ab4-dab3-44db-9f70-5feac4553990" class=""><mark class="highlight-default">Message Dictionary lets you catalog messages for display from your application without hardcoding them into your forms and programs.</mark></p></details></li></ul><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Developer Tools</summary><div class="indented"><ul id="cf3446b2-9292-4685-a281-8ffbdaf6e0a3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Oracle E-Business Suite (Any Version of R12.X&quot;)</mark></li></ul><ul id="402ea03e-39b5-4b6b-95a4-5e19199ce49f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Notepad++</mark></li></ul><ul id="4067ebcd-83b0-4ebc-94c2-79d78e2d745d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Winscp</mark></li></ul><ul id="b136dd8f-ab2f-4bbf-8284-e4d2a0eb2a3d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Report Builder</mark></li></ul><ul id="3d3f3ed5-cbaf-48f8-a8dc-3ee0f59320fe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Putty</mark></li></ul><ul id="ddf6203b-010f-49f4-9547-5785b3d3f8ae" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">Unix Basics</mark></li></ul><p id="ab17eb8c-9ae5-459c-85bb-258e17246c64" class="">
+</p><p id="baac98c8-090a-49c7-b33a-1b22d3c4ebee" class=""><code>SELECT  FLTV.LOOKUP_TYPE LOOKUP_TYPE,</code></p><p id="daf3f8bb-9614-4391-9ce0-04c6f6d2c51d" class=""><code>FAV.APPLICATION_NAME APPLICATION_NAME,</code></p><p id="d8695c0d-4e33-4a88-984a-795abd40063f" class=""><code>FLVV.LOOKUP_CODE CODE,</code></p><p id="953e2d78-b9d9-42b1-8ba8-81b06dd53088" class=""><code>FLVV.MEANING MEANING,</code></p><p id="895acbb7-838d-4be3-bf3e-1d08a9c1d5b4" class=""><code>FLVV.START_DATE_ACTIVE FROM_EFFECTIVE_DATE</code></p><p id="50f33d04-746c-444d-b30e-f432e8368701" class=""><code>FROM    FND_LOOKUP_TYPES_VL FLTV,</code></p><p id="1c6e7ee0-9073-4c9a-b1eb-12a4dcba75a2" class=""><code>FND_LOOKUP_VALUES_VL FLVV,</code></p><p id="24d36100-ad23-4ddb-b9c8-ba6aa3e81cd6" class=""><code>FND_APPLICATION_VL FAV</code></p><p id="0bb61227-36ef-47dd-9a98-739fee8d923b" class=""><code>WHERE   FLTV.LOOKUP_TYPE = FLVV.LOOKUP_TYPE</code></p><p id="b55a13dd-0b72-4275-8d9d-d39ad304dcd2" class=""><code>AND     FLTV.LOOKUP_TYPE = &#x27;DCS_2023_BATCH&#x27;</code></p><p id="b9dd2d0e-046d-473d-b8f0-0c4790a08e92" class=""><code>AND     FLTV.APPLICATION_ID = FAV.APPLICATION_ID;</code></p><p id="2317bb00-9e11-4c96-b8b3-2f8e5b887e9c" class="">
+</p><p id="a43c2ecf-11af-42d5-8ce2-d858a3441268" class=""><code>SELECT</code></p><p id="1911a1b2-f6a3-4561-a3de-aa7fc1d66c01" class=""><code>FFVS.FLEX_VALUE_SET_NAME VALUE_SET_NAME,</code></p><p id="d1a52eec-056e-407e-a56f-52ca0a3cce72" class=""><code>FFVV.FLEX_VALUE VALUE,</code></p><p id="0f4dd502-317e-42a7-b7ef-8941b26d0fe9" class=""><code>FFVV.DESCRIPTION DESCRIPTION,</code></p><p id="26def7ac-8709-4c16-a01b-72b304240082" class=""><code>FFVV.ENABLED_FLAG</code></p><p id="53c4db7f-0680-449e-a92f-eac4f886f4a5" class=""><code>FROM    FND_FLEX_VALUES_VL FFVV,</code></p><p id="02f1ae63-a22f-47f7-acf6-e960193e2e57" class=""><code>FND_FLEX_VALUE_SETS FFVS</code></p><p id="dff3bef3-305e-4463-ba00-d024e0adc624" class=""><code>WHERE   FFVS.FLEX_VALUE_SET_ID = FFVV.FLEX_VALUE_SET_ID</code></p><p id="7499bb72-2764-46e9-a33e-4b04fc53e87d" class=""><code>AND     FFVS.FLEX_VALUE_SET_NAME = &#x27;DCS 2023 Batch&#x27;;</code></p></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Working with RICE component</strong></summary><div class="indented"><blockquote id="563cb1ce-3c9f-4922-bb61-9f34a5f3f25d" class="">R - Reports</blockquote><blockquote id="36518ac2-e2bf-4417-8745-b144b35a3817" class="">I - Interface</blockquote><blockquote id="c8b7c763-44f8-4b6b-b09c-5610468eedbe" class="">C - Conversions</blockquote><blockquote id="9ce11c2b-4ba1-4d7d-be32-eb8f81c87e4a" class="">E - Exchange</blockquote></div></details><details open=""><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0"><strong>Different Type of projects</strong></summary><div class="indented"><ul id="b477f8df-2157-402d-9337-e130df32ec09" class="bulleted-list"><li style="list-style-type:disc">Implementation</li></ul><ul id="6a9f6af8-fba6-4598-b1cf-811456ef7f55" class="bulleted-list"><li style="list-style-type:disc">Customization</li></ul><ul id="e0e140df-8688-4e71-9781-21d0a4c06c79" class="bulleted-list"><li style="list-style-type:disc">Migration / Upgrade</li></ul><ul id="ed2a6ff0-15e7-4f79-a098-9f7a0ac7e8cf" class="bulleted-list"><li style="list-style-type:disc">Support</li></ul></div></details></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">AOL Advanced - (DAY 4)</mark></summary><div class="indented"><p id="2f836992-535e-453c-8ba2-563fb9ebb6c6" class="">Form Function Registration (D2K Form)</p><p id="c3db2a29-79d3-45d5-8acd-bd2a346d62ae" class="">Function Registration (OAF Page)</p><p id="adf7f4a8-ad2c-4e6d-8153-a9505836710e" class="">Menu Registration</p><p id="ef2fe470-c3f4-4893-bbb9-181c14652bd7" class="">Assign Responsibility to User</p><p id="0e4ae2ed-980e-4a6c-b838-f7e652956c63" class="">
+</p><p id="370f34b4-a9d2-4ff0-83a6-8422df34b508" class="">Form Name: FNDMNMNU<br/>Form Function Name: FND_FNDMNMNU<br/></p><p id="123e89d2-7817-40d6-a43b-913fd23317f3" class="">User form name : Define Menu<br/>User function name: Menus<br/></p><p id="88717e45-919a-4ae8-9b0d-6b7463ad225f" class="">System Administration Functions<br/>Navigator Menu - Application Developer GUI<br/>Application Menu - Application Developer GUI<br/></p><p id="23e9d0f4-4eda-4a02-8ac3-59f0cdc516ba" class="">
+</p><p id="cf7cb72f-5d3b-4d1f-8702-55055a58b20b" class=""><strong><mark class="highlight-red">Create a user</mark></strong></p><ol type="1" id="6ca1a7d6-495b-4abb-8b17-f94f03186075" class="numbered-list" start="1"><li><mark class="highlight-default">system administrator</mark></li></ol><ol type="1" id="9be288d9-7ee8-4edf-af07-09e05dea91fa" class="numbered-list" start="2"><li><mark class="highlight-default">go to Security tab =&gt; user tab =&gt;define</mark></li></ol><ol type="1" id="dc30d448-de74-482d-89a3-24b58163a101" class="numbered-list" start="3"><li><mark class="highlight-default">from frontend</mark><p id="2707e1db-5846-4cec-8236-86f12aadb7a2" class=""><mark class="highlight-default">Enter username</mark></p><p id="8ed3fa8d-0a40-46a2-bd9b-55f4c5a68dcd" class=""><mark class="highlight-default">Password</mark></p><p id="7281af6c-8a96-48ec-877d-2a066f915d17" class=""><mark class="highlight-default">Description</mark></p></li></ol><ol type="1" id="83e9f2e7-9ea3-4d76-86a4-953ca87ab723" class="numbered-list" start="4"><li><mark class="highlight-default">password expire days accesses none</mark></li></ol><ol type="1" id="d1c78f72-32f7-4575-a382-a620e492e5b5" class="numbered-list" start="5"><li><mark class="highlight-default">responsibility   </mark></li></ol><figure id="4dc3780d-56cd-4fbb-9857-71b91b50a726" class="image" style="text-align:left"><a href="Image/Untitled%201.png"><img style="width:664px" src="Image/Untitled%201.png"/></a></figure><p id="1ad54422-b6cb-4a09-bb3a-cc3c6e8ad0ed" class="">
+</p><p id="2df4d62c-905e-42d0-8f83-40a134f1acc1" class="">To get value set</p><p id="b3f34705-22ac-4185-a39a-b36c61544f11" class=""><code>SELECT</code></p><p id="60cbe707-ae08-44e2-989a-dbdb502b1cc4" class=""><code>FFVS.FLEX_VALUE_SET_NAME VALUE_SET_NAME</code></p><p id="c03f37da-7a64-4404-82e1-355e6e3133e9" class=""><code>FROM</code></p><p id="a96e493e-8255-4a01-8113-dd564e63cb75" class=""><code>FND_FLEX_VALUE_SETS FFVS;</code></p><p id="407da942-6249-47dc-8844-b09a8d79f92a" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">P2P (Procure To Pay) Cycle (Day 5)</mark></summary><div class="indented"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">P2P Cycle Part 1 - (DAY 5)</mark></summary><div class="indented"><p id="36f7b10e-462d-44dc-aec8-4acbfe5a5c31" class="">Item Creation - Inventory, Vision Operation&gt;items&gt;master items</p><p id="a1b0c9ee-aae6-4bf2-96a1-3156faddad4d" class="">Table name - MTL_SYSTEM_ITEMS_B<div class="indented"><p id="ee09721f-b81a-46a3-bb1d-6a4545798e8a" class="">_B - Base table</p></div></p><p id="ddb0cf6e-c10e-41dd-b8de-d39fe8a85c15" class="">MTL SYSTEM_ITEMS B is the definition table for items. This table holds the definitions for inventory items, engineering items, and purchasing items. You can specify item-related information in fields such as:-<br/>Bill of Material, Costing, Purchasing, Receiving, Inventory, Physical attributes, General Planning, MPS/MRP Planning, Lead times, Work in Process, Order Management, and Invoicing.<br/></p><p id="e97ab387-8683-4084-8f2a-ebba8fa67497" class="">
+</p><p id="e390a5da-5e87-4cf8-b129-361d251474e8" class="">Primary keys-</p><ol type="1" id="95d2df45-31f0-4491-8a46-c3b79f62a3d5" class="numbered-list" start="1"><li>INVENTORY_ITEM_ID</li></ol><ol type="1" id="6cc8b8a8-44c0-44aa-8e52-6b2686b3f7b4" class="numbered-list" start="2"><li>ORGANIZATION_ID</li></ol><p id="8f1f031e-8885-4d2d-b350-99f04756f92e" class="">
+</p><p id="9bfce4d2-26b0-468d-bd77-203d6b42e7d2" class="">Table name - MTL_SYSTEM_ITEMS_FVL<div class="indented"><p id="67c77c0e-0165-470d-b8da-2f91743e9c20" class="">_FVL - Flexfield Value</p></div></p><p id="3ff1efc3-cd64-4304-8b30-460b0186e6e2" class="">
+</p><p id="aa528743-a740-46d8-abe2-238bd4a0f53a" class="">Creating items templates - Inventory, Vision Operation&gt;Setup&gt;Items&gt;Templates</p><p id="6f3db670-6790-45d2-8d57-315a2b3c7b25" class="">Items Template is used to inherit (copy) the property will create item creation (Master item).</p><p id="7483a28a-a36a-466c-96d4-5eb8d8d0cb81" class="">
+</p><ol type="1" id="16360d75-0a6d-4ffe-941f-01f667d26057" class="numbered-list" start="1"><li>Requisition- (List of things needed)<p id="ff38753c-ac7a-4473-83c4-c9b9eb2ff737" class="">Requisition is also called Preparer</p><p id="a575de4e-790f-4a9f-8d21-1347a968a7f9" class="">Purchasing, Vision Operations&gt;Requisitions&gt;Requisitions</p><p id="55b63fd6-b0e7-42e2-9d00-374fba366ac9" class="">NOTE: Purchased and Purchasable must be enabled.</p><p id="d69faefe-b8f2-4224-b351-086a84b0c704" class="">Requisition automatically generates a unique number for List of things after saving the form</p><p id="89dfb30d-daf0-44d5-9ddd-125f59a5f4ee" class="">It also can be manually setup from - Purchasing, Vision Operations&gt; Setup&gt;Organisation&gt;Purchasing Options</p><p id="d85ccd0c-5559-4eb9-927a-adb5dcf567a6" class="">
+</p><p id="ce126e37-8aa8-4a8c-90de-b2cfb5456e41" class="">Requisition Header Table - PO_REQUISITION_HEADERS_All</p><p id="af504c09-fb8f-4d4f-8dcf-4910d04f976e" class="">Requisition Lines Table -<br/>PO_REQUISITION_LINES_ALL<br/></p><p id="9f04026d-ad99-4cc5-9340-031533a4f610" class="">Requisition Distributions Table - PO_REQ_DISTRIBUTIONS_ALL</p><p id="1a5e49d6-7cca-4d71-a32d-4b2c9dd52cd0" class="">
+</p><p id="f38d3761-c7b2-4b76-9aef-3900c87f055d" class="">Requisition Distributions Charge Account Table -</p><p id="8c745643-c356-405b-b49f-0f0aab44d750" class="">GL_CODE_COMBINATIONS</p><p id="85bad018-9f52-489b-a256-aaea349a87d6" class="">GL_CODE_COMBINATIONS_KFV<div class="indented"><p id="43b8025c-274d-44b7-9515-974795942426" class="">KFV - Key Flexfield Value</p></div></p><p id="e7a67389-c647-41dc-aae5-a4fc682ce92e" class="">
+</p><p id="36f10023-d8ba-4c70-af75-88f87eedc787" class="">How to derive Requester/Preparer</p><p id="1be14f20-312b-42d2-a979-7f719d2186ae" class="">Requester&#x27;s name is derived from - </p><p id="3343a894-8b87-47e3-9638-bf17c4fe34bf" class="">Human Resource&gt;People&gt;Enter and Maintain</p><p id="5b2918a2-2ebe-4ed0-bd39-40c0f15e1d92" class="">Table of employees details -PER_ALL_PEOPLE_F</p><p id="5164f08b-f5a9-487c-b9f1-76acb46df1fb" class="">
+</p><p id="98c6de29-1fb5-440c-b411-d87ace1f3b7f" class="">How many ways to derive a charge account?</p><ol type="1" id="ac231990-0a21-4c61-b5ea-c17b034abfb2" class="numbered-list" start="1"><li>GL_CODE_COMBINATIONS</li></ol><ol type="1" id="4f1bec33-5760-456c-8d93-3e3d01c253f6" class="numbered-list" start="2"><li>GL_CODE_COMBINATIONS_KFV</li></ol><ol type="1" id="25809962-4dee-4ba8-acfe-0822356e34f8" class="numbered-list" start="3"><li>POR_VIEW_REQS_PKG. GET_ACCOUNT_NUMBER (requisition_line_id)</li></ol><p id="b9fc13c7-fb3f-4972-afdf-6ccd49055165" class="">
+</p><p id="118ffbcd-da99-4a97-be93-2451543ef911" class="">How do we derive item numbers?</p><p id="d04e1c57-5dbd-49b4-a1cb-af78227505ab" class="">Table of categories -<div class="indented"><p id="47f48853-8cca-4ab0-b990-1551348431a0" class="">MTL_CATEGORIES</p></div></p></li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">P2P Cycle Part 2 - (Day 5)</mark></summary><div class="indented"><ol type="1" id="cecafcfb-287d-4ade-87c2-075470d82e41" class="numbered-list" start="2"><li>Approval<p id="cf1e98a2-d950-4737-8a83-8256a916162e" class="">Purchase Requisition (Preparer) which we created it will be get approved by the higher authority of their organisation</p><p id="d2ab82e9-d473-4433-a818-d7fe988e63f3" class="">PO_ACTION_HISTORY -</p><p id="72732e25-11f4-4d27-a5ba-9cc1b269e2f3" class="">primary key - Object_Id</p><p id="9f08454a-8e96-4c8c-9bef-125085511b6f" class=""><br/>List of requisitions and its approvers -<br/></p><p id="deb8a27e-63ae-4833-9fc9-88714a4ba354" class="">PER_ALL_PEOPLE_F</p><p id="b73e4caa-3710-4f33-91eb-31547f19dc4f" class="">PO_REQUISITION_HEADER_ALL</p><p id="f0338687-02d0-4f79-be8b-746546f1e4bf" class="">PO_ACTION_HISTORY</p><p id="fd1ea7cd-b3ea-4a4c-8889-098f233d6e82" class="">
+</p><p id="fe89a8f8-6dd7-4039-8c90-8e01815c4976" class="">Approval query limit?</p><p id="d10c19f4-4bee-4f25-a0fc-b0513afa4828" class="">PO_CONTROL_RULES</p><p id="6acb5807-ffd2-450b-82a2-44eda636f00a" class="">
+</p></li></ol><ol type="1" id="59102494-6718-46bd-ba11-7b3cac576b4b" class="numbered-list" start="3"><li>RFQ (Request for Quotation)<p id="00a5859b-1298-4fa4-8d49-595af549b44f" class="">A list of things is created and the same list is sent to different vendors, to find the best price and delivery date.</p><p id="bf58fbcf-3d94-446a-bbf3-207f74ea5d91" class="">RFQ Header Table - PO_HEADER_RFQQT / PO_HEADER_ALL</p><p id="9c41640e-2a0c-4031-8054-164a6ce2b8cf" class="">
+</p><p id="0c61c593-1209-4a9a-9836-470e38af28fe" class="">How to add a new supplier for RFQ - Supplier Base&gt;Supplier Lists</p><p id="5b2b2cc9-8c93-4322-bd95-a10fc2efb902" class="">
+</p><p id="5145f9e4-e752-429f-99f8-5a5cefa1e059" class="">RFQ Terms -</p><ol type="1" id="4929b316-41b1-4fa1-8ff0-bf9023be4665" class="numbered-list" start="1"><li>Payment terms - payment duration</li></ol><ol type="1" id="9e331d10-783d-4cec-830c-8b83926b36fb" class="numbered-list" start="2"><li>Freight terms - Mode of shipping</li></ol><ol type="1" id="b7af3f50-a764-4d29-a4f8-fa4173b1ed43" class="numbered-list" start="3"><li>Carrier - Courier company name </li></ol><ol type="1" id="49debe62-87d7-4345-a581-75ee30b67c86" class="numbered-list" start="4"><li>FOB (Free on board) - Responsibility for good</li></ol><p id="906ea448-41f5-4c9a-8442-05caf829b018" class="">DFF - Descriptive Flexfield - Attribute Columns - 15 (To store extra information we use DFF)</p><p id="68237f6b-686a-4acf-afea-8d8e76a2ca8f" class="">KFF - Key Flexfield - Segment Columns - 30</p><p id="15751a47-192d-451c-955e-a2296d25350d" class="">
+</p><p id="ac05ab29-8b11-4767-8820-2e232439b995" class="">Creating DFF -</p><p id="889ebb83-d3ed-4880-9267-1defd9a7f058" class="">Application Developer&gt;Flexfield&gt;Descriptive&gt;Register </p><p id="55269757-db1e-4ec5-957f-28ec53f8ef82" class="">
+</p><p id="5931fca4-afec-4e3c-8cf2-834252a376c1" class="">Adding Values to DFF -</p><p id="1f02f8b2-54e4-4838-9584-d46e081a492d" class="">System Administrator&gt;Application&gt;Flexfield&gt;Descriptive&gt;Values </p></li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">P2P Cycle Part 3 - (Day 5)</mark></summary><div class="indented"><p id="90e5ce3c-e049-4e76-95dd-a3b986984ee8" class="">// The link between requisition number and RFQ number? </p><p id="1ac749d1-8b1a-4dd7-b667-30a123d2a1aa" class="">
+</p><p id="3261df14-e750-4d42-b8f3-dd963f00f62e" class="">RFQ - from our company  to suppliers<br/>Quotations - from suppliers to our company<br/>Quotation Analysis - finalizing supplier<br/>PO (purchase order) - Buyer<br/>Autocreate to PO<br/></p><p id="f45940b1-155d-43c3-bc7c-6d7c79766eca" class=""><br/>Preparer &gt; Requester &gt; Buyer<br/></p><p id="8a5c84cc-33b6-4860-9dba-d5cd68887855" class="">
+</p><p id="ff0b6a42-603d-4985-a60f-2be03b2dff09" class="">Purchasing&gt;Purchase Orders&gt;Purchase Orders</p><p id="4277303d-6acb-4bd8-8805-9c920925c2d8" class=""><br/>4 Types of PO <br/>Standard - Once or Twice<br/>Planned - Scheduled purchasing<br/>Blanket - Agreement 1 year, laptop<br/>Contract - Like blanket PO, we can purchase any item<br/></p><p id="24a32618-d72b-4c59-a076-4cedb93e2871" class="">
+</p><p id="48f8410b-6c78-4a0e-b936-e776b99d2da3" class="">The primary key in the table:-<br/>PO_HEADERS_ALL - po_header_id <br/>PO_LINES_ALL -  po_line_id<br/>PO_LINE_LOCATIONS_ALL - po_line_location_id<br/>PO_DISTRIBUTIONS_ALL - po_distribution_id<br/></p><p id="05324d12-5991-4bcb-a251-be4a162d5ca9" class="">
+</p><p id="594dcbcc-c167-4c21-a3dc-82a50489553c" class="">// Link between requisition number and PO number?<br/><br/></p><p id="3178f60f-60ea-4a47-b76d-4e6c59a5dcb9" class="">Match approval options:-</p><table id="b9bb171f-6648-4f83-8865-74b0ad67be15" class="simple-table"><thead class="simple-table-header"><tr id="3fc8885f-55d5-4ba6-a659-bd778b7e8ca3"><th id="LvAJ" class="simple-table-header-color simple-table-header" style="width:111.66666666666667px"></th><th id="MlpT" class="simple-table-header-color simple-table-header" style="width:111.66666666666667px">PO Quantity</th><th id="ykvM" class="simple-table-header-color simple-table-header" style="width:111.66666666666667px">Billed/Invoice Quantity</th><th id="DQWi" class="simple-table-header-color simple-table-header" style="width:111.66666666666667px">Receipt</th><th id="p{Ht" class="simple-table-header-color simple-table-header" style="width:111.66666666666667px">Inspection required</th></tr></thead><tbody><tr id="d45a2f27-1017-4357-abcb-5357c53b4b2b"><td id="LvAJ" class="" style="width:111.66666666666667px">2 Way</td><td id="MlpT" class="" style="width:111.66666666666667px">3</td><td id="ykvM" class="" style="width:111.66666666666667px">3</td><td id="DQWi" class="" style="width:111.66666666666667px">N</td><td id="p{Ht" class="" style="width:111.66666666666667px">N</td></tr><tr id="ea55345a-7271-4a38-99ec-75e78a04ea27"><td id="LvAJ" class="" style="width:111.66666666666667px">3 Way</td><td id="MlpT" class="" style="width:111.66666666666667px">3</td><td id="ykvM" class="" style="width:111.66666666666667px">2</td><td id="DQWi" class="" style="width:111.66666666666667px">Y</td><td id="p{Ht" class="" style="width:111.66666666666667px">N</td></tr><tr id="225f8f87-d2e9-4e36-be36-076603301f91"><td id="LvAJ" class="" style="width:111.66666666666667px">4 way</td><td id="MlpT" class="" style="width:111.66666666666667px">3</td><td id="ykvM" class="" style="width:111.66666666666667px">2</td><td id="DQWi" class="" style="width:111.66666666666667px">Y</td><td id="p{Ht" class="" style="width:111.66666666666667px">Y</td></tr></tbody></table><p id="aee29e35-1774-4f74-a19e-3bf31f07c963" class="">Table - PO_LINE_LOCATIONS_ALL </p><p id="4f8d74cb-9fbe-4bb0-b3e0-878f69f33ad8" class="">Column - <div class="indented"><p id="d4663334-f372-4d0d-b3ad-bf48415af99a" class="">RECEIPT_REQUIRED_FLAG</p><p id="c63f474d-c750-4e01-af78-5ba0a023814f" class="">INSPECTION_REQUIRED_FLAG</p></div></p><p id="a5415725-ba1b-4796-8d34-9d96974c5337" class="">
+</p><p id="37de2914-b819-44ef-8032-3feb8e95920a" class="">Goto Purchasing&gt;Receiving&gt;Recepits</p><p id="09162891-70ab-4371-875d-5c83ef3adf3a" class=""><br/>PO Receipt -<br/>RCV_SHIPMENT_HEADERS<br/></p><p id="4c1fbc7d-a819-4b00-843a-b77ec426d0fa" class="">RCV_SHIPMENT_LINES</p><p id="d24e4207-4bea-4280-916d-ca351ce4a4bc" class="">RCV_TRANSACTIONS<br/><br/></p><p id="958716fa-ca42-4627-823b-5bc9cd0b8ba3" class="">Receiving Transaction Processor - PO receipt creation</p><p id="e7a31d9a-2547-41b3-8645-e2b3a474634e" class=""><br/>ADS (Pay On Receipt Auto-Invoice) - it is to validate and trigger the payables<br/></p><p id="1952861c-6073-44e7-bdd4-7619e6150483" class=""><br/>Payables Open Interface Import - it will create an AP (Account Payable) invoice automatically<br/></p><p id="8e199a15-3968-4982-8168-d2e0d2534f8f" class=""><br/>// Join between PO and receipt<br/></p><p id="0211edf8-6f3e-4066-b234-f5cf16e7234f" class="">RCV_SHITMENT_HEADER</p><p id="01e4dcee-2e63-414a-b467-1733747cf5ed" class="">RCV_SHITMENT_LINES</p><p id="e9e0155e-11cf-40f8-9ae3-18108fe3092e" class="">PO_HEADER_ALL</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">P2P Cycle Part 4 - (Day 5)</mark></summary><div class="indented"><p id="e1fb75f3-10ea-43a8-9308-91eedf8e28a3" class="">
+</p><p id="753cbc6d-db9a-419d-a11f-50c9c942d12c" class="">AP_INVOICES_ALL</p><p id="d4b56dac-2ff6-4ca5-afed-503c21ce378a" class="">AP_INVOICE_LINES_ALL</p><p id="d898c8b4-4bcf-4b0a-ada4-a37f1ee24512" class="">AP_INVOICE_DISTRIBUTIONS_ALL</p><p id="81b0cedc-54d5-409c-94f8-8e548b2eb3a6" class="">
+</p><p id="db00d5b1-ec70-44cd-b6c2-f77c45d430b2" class="">// How to display AP invoice validation status?</p><p id="b32ecf88-1946-4382-a387-a1096399ec9e" class="">AP_INVOICES_UTILITY_PKG.GET_APPROVAL_STATUS(4 parameters)</p><p id="7d16496f-17b1-4ea5-87a1-1655ca1df58d" class="">
+</p><p id="0fbdbafe-5430-43b2-bd79-53b74233a406" class="">// How to display open invoices?</p><p id="3fcf1586-980d-4a0d-a583-256c94680c56" class="">Payment_Status_Flag from AP_INVOICES_ALL</p><p id="32535edb-b435-49e3-97e4-96d61b674cf0" class="">
+</p><p id="de223846-2c73-4041-931c-940a467f20ea" class="">// What is link between PO and AP Invoice</p><p id="3763baec-b076-48ae-abfb-20ee36ba0270" class="">AP_INVOICES_ALL</p><p id="bb3f2085-7dc4-4066-b565-9ac725ae3dd5" class="">APINVOICES_DISTRIBUTIONS_ALL</p><p id="f9f042b9-b641-4427-bd61-0590638d9ea2" class="">PO_DISTRIBUTIONS_ALL</p><p id="c9fa791a-10e3-48ec-87a2-d1483014d17e" class="">PO_HEADERS_ALL</p><p id="52816a20-017c-4b36-9f94-1953ec895944" class="">AP_HOLDS_ALL</p><p id="6c3f69ef-c658-448f-859e-5973ebd06eea" class="">
+</p><p id="ca55c5db-995f-44a8-b3f9-a323ad2e3303" class="">Invoice action -</p><p id="01aa95da-f134-4458-9d24-65bd485759ce" class="">Create accounting<div class="indented"><p id="a4bf16eb-f113-46c6-ad8a-3da14782c221" class="">Draft - It will just create project account </p><p id="90f53c9d-a610-4be5-adee-7274b1ed1758" class="">Final - It will create and transfer procedure</p><p id="a8026770-7eab-4a35-90b0-d11d32aca084" class="">Final Post - It will create and it will post to GL</p><p id="2578fde2-aacc-41e8-99b5-e7402cd576cc" class="">
+</p></div></p><p id="6c59e157-778d-419c-b62c-389c73a171fc" class="">Accounting -<div class="indented"><p id="37f51a6b-9875-4fb5-af18-e98fdfe05c20" class="">Accrual - Debit</p><p id="4f8340cc-7751-437e-bc0e-56d79739fcd3" class="">Liability - Credit</p><p id="0d7371e4-2bb4-40de-aa7f-eca314fad381" class="">Non Recoverable Tax - Credit</p><p id="10842c44-a1e6-46f2-a1f0-1e0a4b59088a" class="">
+</p></div></p><p id="16e52521-7623-4d07-9c7a-4a3464a48dca" class="">XLA_AE_HEADER</p><p id="f6be3d7d-559b-4a66-9f0f-6ce98724a739" class="">XLA_AE_LINES</p><p id="f374db8b-ef2c-4fd9-ae64-46e239264964" class="">XLA_EVENTS</p><p id="a57627f7-812d-444d-9023-b814d007deaa" class="">XLA_DISTRIBUTION_LINKS</p><p id="2402f703-fe42-40c0-95e6-8a2e04a0fb5d" class="">XLA_TRANSACTION</p><p id="426bea82-00cd-4bb5-b81b-3c954e2199d3" class="">
+</p><p id="ec330033-1d9b-4edc-9e4d-f1dfc54a2417" class="">AP_INVOICE_PAYMENT_ALL</p><p id="68f15bdc-8d32-43b6-8181-46c7f8a6ec89" class="">AP_INVOICES_ALL</p><p id="f96b8978-dc6f-4b6d-a212-19cd5f4149a3" class="">AP_CHECKS_ALL</p><p id="9a0a1656-1c80-40da-a089-11cd31ca6e91" class="">
+</p><p id="203ea600-5dd9-4036-a7cc-28ff9496a114" class="">We can put payment on hold by VOID button</p><p id="ca2e9894-a0f0-4e83-aab7-2be8725f5e26" class="">
+</p><p id="b463029f-7e68-4a74-9e7c-5ca78396cee2" class="">Cash Clearing - Credit </p><p id="0adff066-71e4-458a-ab30-6fb8d36373f5" class="">Liability- Debit</p><p id="47cf248f-cb9e-4159-bdfe-506d156b9c5a" class="">
+</p><p id="b7a429bf-ac77-44bf-9962-ad82213f80fe" class="">Transfer to GL - Transfer Journal Entries to GL</p><p id="b447418b-b95d-498b-9012-30002b865cfa" class="">
+</p><p id="dbc11389-4de3-4411-b5b8-fce3e345aa4d" class="">General Ledger&gt;Inquiry&gt;Journal</p><p id="f6850cbd-4491-4415-9b41-f5752fa92927" class="">
+</p><p id="c1232b58-0df2-4914-9bf8-2fa5bb85c2ef" class="">
+</p><p id="77920a8d-e96e-4f85-bcaf-6e692c4abe9e" class="">
+</p></div></details></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">FORM Personalization</summary><div class="indented"><figure id="2c6e40c4-a07b-4953-be69-649bb5aceae6" class="image"><a href="Image/Untitled%202.png"><img style="width:1473px" src="Image/Untitled%202.png"/></a></figure></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher</mark></summary><div class="indented"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 1</mark></summary><div class="indented"><p id="6dc20a9b-35fd-40f4-97e6-60dea21888f0" class=""><strong>XML Publisher</strong>, which is also called Oracle <strong>Business Intelligence Publisher (BI Publisher)</strong>, is a template-based reporting tool that leverages standard technologies for data extraction and display.</p><p id="c955809f-20c1-4bef-ab0b-b23215eeec0e" class=""><strong>Reporting tool </strong>– xml publisher /rdf /sql/plsql/discoverer</p><ul id="d663e5c5-998b-4b89-b518-6341151f8c74" class="bulleted-list"><li style="list-style-type:disc">xml publisher report development and registration</li></ul><ul id="3eff109c-ca4d-4c29-8c35-ee7291d1c7f3" class="bulleted-list"><li style="list-style-type:disc">For this we need 2 things - Data model, layout model</li></ul><ul id="76559c08-c989-40d8-a3b4-3557ad587dc8" class="bulleted-list"><li style="list-style-type:disc">data model--- query--RDF/plsql/data template</li></ul><ul id="b8b2f75b-c20d-4dc2-bee1-70c6298c868b" class="bulleted-list"><li style="list-style-type:disc">layout model--- output columns --RTF/Excel/PDF/XSLFO/ETEXT</li></ul><ul id="3c404bd0-ce81-43b8-a681-f332007ed0a1" class="bulleted-list"><li style="list-style-type:disc">Create data template</li></ul><p id="c57d05d8-9b53-46cd-bfbb-d96a06ab9f0f" class=""><strong>What are sections avaliable in data template ?</strong></p><p id="fd48547b-073f-4cc1-9129-ff000fc0bb59" class="">Data template name and description and version</p><p id="f0355601-fea4-4457-83eb-bd25f4ae960e" class="">Parameter --parameter name, datatype</p><p id="e66a1750-40dd-438b-b40f-719f5509a4f7" class="">Sql statement</p><p id="be9939d0-e297-4c1c-8340-d67c6353a3a8" class="">SQL query that displays a supplier&#x27;s address.</p><p id="0049ef4d-777e-468b-b92a-3318730f039e" class="">Data Structure</p><p id="356ed365-0a1f-4921-b3aa-d2835fe04809" class="">overall 3 sections are there</p><ul id="2402348f-3b15-4c05-aec6-1194262ef5ca" class="bulleted-list"><li style="list-style-type:disc">Here in this part 1 video they have taken existing xml file</li></ul><ul id="505fcc03-9609-4063-ab78-109dc4d0ff1a" class="bulleted-list"><li style="list-style-type:disc"><strong>steps : </strong>(XML publisher responsibility &gt; home &gt; data definitions)</li></ul><ul id="02e5bfad-4869-4ede-9c09-335686209d29" class="bulleted-list"><li style="list-style-type:disc">Now,this screen will come so now we have to select a module</li></ul><ul id="9dde2541-9982-4f98-ac23-408729c36eed" class="bulleted-list"><li style="list-style-type:disc">for eg: They have selected inventory</li></ul><ul id="baa1fe1a-29ab-402b-945c-c6b0eb583905" class="bulleted-list"><li style="list-style-type:disc">Existing files given by oracle</li></ul><ul id="9cbe5e64-7763-4259-ab61-3dd642e33dc1" class="bulleted-list"><li style="list-style-type:disc">Earlier we saw about using existing files</li></ul><ul id="7cc9cdd4-5097-449e-bef7-d8fa35cb32ee" class="bulleted-list"><li style="list-style-type:disc">Now we will see how to create our owon Data definition</li></ul><ul id="a4ffa780-0e64-473b-95e8-ab3c708a3b50" class="bulleted-list"><li style="list-style-type:disc">Give the name of your Data template which you develop</li></ul><ul id="73b1344f-9291-4107-b2f3-f04712326a97" class="bulleted-list"><li style="list-style-type:disc">Th file which is added now can be seen</li></ul><ul id="82abecb7-bf2f-4128-9967-9bb1ed34933d" class="bulleted-list"><li style="list-style-type:disc">In this you can do modifications n number of times</li></ul><ul id="4d7c80b1-c061-4cd5-8b58-f89c3995b915" class="bulleted-list"><li style="list-style-type:disc">Executale--<strong>system administrator-- concurrent--program</strong></li></ul><ul id="7a9c482d-2c3a-4120-a83c-4a01a480b29a" class="bulleted-list"><li style="list-style-type:disc">This short name (XDODTEXE) is common for many reports. If we are generating 100 reports this short name is common for all of them. XDO --short name of xml publisher, DT -- Data template, EXE -- executable</li></ul><ul id="ab191fde-cf20-4a85-976a-49c69c3495ad" class="bulleted-list"><li style="list-style-type:disc">To find short name of any module, go to system administrator-application-- register-- f11-- enter module name-- Control+f11)</li></ul><ul id="c3ce941f-b6ce-4938-bcb8-7f68a957409e" class="bulleted-list"><li style="list-style-type:disc">Concurrent program--RICEW- R- reports</li></ul><p id="3161d07c-48df-4953-a480-6519e600f48a" class="">I-Interface</p><p id="977d0863-9f5e-4729-8411-2f7d5274237c" class="">C- conversion</p><p id="30e2bea1-ed0d-4aa9-a4c0-cd66a5c909fa" class="">E- extension</p><p id="b34c626e-7661-496b-bb74-e643d2118447" class="">W- workflow</p><ul id="92035097-51af-402f-96f8-5ab7750773bb" class="bulleted-list"><li style="list-style-type:disc">Program there are 3 parts i.e HBO--Client name,R1--rice identifier, Supplier Extract Report-- name</li></ul><ul id="f22d77e4-1c90-4332-b530-2b43891fcc9e" class="bulleted-list"><li style="list-style-type:disc">Attach to request group</li></ul><ul id="6ace5c85-28d3-4b94-bfd7-5a7232cf5471" class="bulleted-list"><li style="list-style-type:disc">Request is already attached to responsibility</li></ul><ul id="31e7ef43-a740-4eda-8b83-7ea240d9ccfa" class="bulleted-list"><li style="list-style-type:disc">Responsibility is already attached to user</li></ul><ul id="90834118-030c-4851-857e-b14310e13263" class="bulleted-list"><li style="list-style-type:disc">User can submit from responsibility</li></ul><ul id="f5e14baa-7e02-42e2-831b-79928b0d9287" class="bulleted-list"><li style="list-style-type:disc">submit from payables responsibility go to view- request-submit request--single request. choose your program, submit.</li></ul><ul id="f56d61b2-0582-4abe-a784-07d066a676f3" class="bulleted-list"><li style="list-style-type:disc">click on view output and save as .xml file</li></ul><ul id="5d0783d5-24c0-4d0d-aa64-ad2259831433" class="bulleted-list"><li style="list-style-type:disc">Create a layout using RTF(RICH TEXT FORMAT)</li></ul><ul id="4f4b7791-a043-43de-9522-e87af7810164" class="bulleted-list"><li style="list-style-type:disc">We can use MS Word for it, but we need the plugins installed on the device. Through this, we are be able to load the XML files on the word.</li></ul><ul id="7786ec16-8d29-4890-b55e-29a9ad03d666" class="bulleted-list"><li style="list-style-type:disc">Output in tabular format, save it in .rtf format</li></ul><ul id="17601762-daf5-461f-b34d-a9ede95304c1" class="bulleted-list"><li style="list-style-type:disc">Registering the Template with XML Publisher got to xml publisher administrator- home- templates--create template-- enter all details and upload rtf</li></ul><ul id="4ed307ea-427b-44d0-8777-37c65af6abc1" class="bulleted-list"><li style="list-style-type:disc">Use the existing data definition,enter code then choose desire output type(pdf,html,rtf...)</li></ul><ul id="76e6e3bb-ea8d-4319-8185-4b164e0bdc45" class="bulleted-list"><li style="list-style-type:disc">File type should be .rtf file</li></ul><ul id="db337fb2-6ef3-4970-b4cf-f5332a397b25" class="bulleted-list"><li style="list-style-type:disc">go to payables responsiblity, go to view- request-submit request--single request.choose your program, submit.view output.</li></ul><ul id="1f11f76e-400d-4ec4-a237-893dd647cde6" class="bulleted-list"><li style="list-style-type:disc">First we choose output format as a PDF and now we want to change it to excel, click on a republish output button and the following field will appear, where we will enter ‘Excel’ in an output format field.</li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 2</mark></summary><div class="indented"><ul id="0333360a-b2af-4737-81a7-742c26219c98" class="bulleted-list"><li style="list-style-type:disc"><strong>Steps for BIP Reort using RDF (report builder)</strong></li></ul><ol type="1" id="19826715-50e1-4a80-bc9d-e1c4b2069699" class="numbered-list" start="1"><li>Create RDF report with SQL. Do not create Frames layout. (&quot;xxx.rdf&quot;)</li></ol><ol type="1" id="3e28ac6d-4e80-47d4-8234-354965d6ca9f" class="numbered-list" start="2"><li>Move file to $XXDCS_TOP/reports/US top (/oracle/DCS12210/apps/fs1/EBSapps/appl/xxdcs/12.0.0/reports/US)</li></ol><ol type="1" id="d161f67a-e37b-4e27-a4d5-ee055ab3abaa" class="numbered-list" start="3"><li>Create Excutable (using above rdf file name)</li></ol><ol type="1" id="031c5038-f83f-4e68-a260-2cb12d25fa21" class="numbered-list" start="4"><li>Create concurrent program with output type as &#x27;XML&#x27;</li></ol><ol type="1" id="05310af8-d312-49f8-a9e8-34942f518409" class="numbered-list" start="5"><li>Assign to request group (All Reports -&gt; Payables)</li></ol><ol type="1" id="926dd268-d5f6-48b8-bd65-2452713098f6" class="numbered-list" start="6"><li>Run concurrent program and save output as &#x27;XXX.xml&#x27; or generate file from Reports Builder</li></ol><ol type="1" id="9acb1322-783f-423e-ab13-e1f19aa450bd" class="numbered-list" start="7"><li>Create rtf file using output file from step#6 (&#x27;xxxxx.rtf&#x27;)</li></ol><ol type="1" id="7c5dd631-4e0b-48b2-8695-a7f21a097271" class="numbered-list" start="8"><li>Swith Responsibilty XML Publisher Administrator</li></ol><ol type="1" id="67df1d34-011a-4b9b-8f2c-60dc49d4656f" class="numbered-list" start="9"><li>Create Data Definition.</li></ol><ol type="1" id="7cdb1146-a137-4957-a940-084163c8cd76" class="numbered-list" start="10"><li>Create Template using rtf file from step#7</li></ol><ol type="1" id="84f4ae26-173a-4a9b-b90a-4055e5a64f46" class="numbered-list" start="11"><li>Swith Responsibilty and run Concurrent program</li></ol></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 3</mark></summary></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 4</mark></summary><div class="indented"><p id="7e6294a4-2914-4845-80c3-f5bc54592113" class=""><strong>Finding out layout error</strong><div class="indented"><p id="a49106ba-fa2c-4df0-89b3-94b8384a98ca" class="">OPP - Output Post Processor</p><p id="fe1e5701-f4f5-4ec4-8bd8-f8563a6c2e32" class="">System administrator &gt; concurrent &gt;  manager &gt; Administrator &gt; Output post processor &gt; Manager log.</p><figure id="2fa2ceec-a85c-42ca-8215-0653cec4b256" class="image"><a href="Image/Untitled%203.png"><img style="width:581px" src="Image/Untitled%203.png"/></a></figure></div></p><figure id="c99b0903-da2a-4d05-9b53-240b1c0eb34d" class="image"><a href="Image/Untitled%204.png"><img style="width:562px" src="Image/Untitled%204.png"/></a></figure><figure id="e608ed93-0a04-488f-9d0f-0c7439bb7615" class="image"><a href="Image/Untitled%205.png"><img style="width:2366px" src="Image/Untitled%205.png"/></a></figure><ul id="ed3dd270-a933-4b30-b3dc-ee27a7ddd965" class="bulleted-list"><li style="list-style-type:disc">Alternative approach ,suppose we don’t have System Administrator then we can go to backend and Query</li></ul><p id="d7f6aac2-fc10-4a23-b6c3-6de3fa6f325d" class="">
+</p><p id="d843c15c-7171-42e0-aac2-86d26cb499a0" class=""><code>SELECT fcpp.concurrent_request_id req_id, fcp.node_name, fcp.logfile_name</code></p><p id="3c042b2b-c525-4f13-a0cd-d083d4a28853" class=""><code>FROM fnd_conc_pp_actions fcpp, fnd_concurrent_processes fcp</code></p><p id="0393e2c4-66cb-4ec7-8970-e42b262b824b" class=""><code>WHERE fcpp.processor_id= fcp.concurrent_process_id</code></p><p id="66b726b8-4bc2-446e-9083-f8947adb7013" class=""><code>AND fcpp.action_type = 6</code></p><p id="dc19b6bc-9f67-41cd-84db-1ff516e1cd68" class=""><code>AND fcpp.concurrent_request_id =  &#x27;7450838&#x27;</code></p><p id="aaa8ccaa-9969-4ef7-96b7-92c883c3e607" class="">
+</p><p id="851e6061-4bf8-4863-9a4d-c3a421ab9f97" class=""><strong>Maintaining Multiple Templates and  set default Template</strong></p><ul id="934f2c34-3540-4f38-9cb3-68181c5db233" class="bulleted-list"><li style="list-style-type:disc">Create one more template based on the same data definition</li></ul><ul id="28f759e0-57c7-4c1d-9ec8-bd552e19237c" class="bulleted-list"><li style="list-style-type:disc">Here we can display multiple templates</li></ul><ul id="bf9edf7f-b2b4-4d7b-b446-81b50170bb61" class="bulleted-list"><li style="list-style-type:disc">Xml publisher administrator-&gt;Home-&gt;templates</li></ul><ul id="858c87bb-456f-4b9d-9cd2-868eedd6238e" class="bulleted-list"><li style="list-style-type:disc">create one more template on existing data definition</li></ul><ul id="64b6510d-c86b-4090-88c6-626cde7dbbc0" class="bulleted-list"><li style="list-style-type:disc">System administration- concurrent – search with program short name<p id="723e1c65-38ab-4dde-bb73-9ffd2f6445a8" class="">Onsite setting  tab- -choose the template which you want default</p><figure id="a3ef6c21-fce7-4077-8df8-4c879d1ee155" class="image"><a href="Image/Untitled%206.png"><img style="width:1068px" src="Image/Untitled%206.png"/></a></figure></li></ul><p id="42e53e67-fa81-4f3f-b181-c12e0cbcbdb1" class=""><strong>Display limited records per page</strong><div class="indented"><p id="3516b664-bcc2-4b23-9e76-b2d04aeef1c7" class=""><code>&lt;?if:position() mod 4 =0?&gt;</code><div class="indented"><p id="38368644-8e95-45c4-9ae8-6b96e90d45a5" class=""><code>&lt;?split-by-page-break?&gt;</code></p></div></p><p id="40f76a9c-3aec-453b-b05e-53274cd26428" class=""><code>&lt;?end if?&gt;</code></p><figure id="27b19f0c-7153-4cbe-bcc7-5204de35a2e2" class="image"><a href="Image/Untitled%207.png"><img style="width:548px" src="Image/Untitled%207.png"/></a></figure><figure id="f427d44b-9d64-47ab-8018-4a30de444413" class="image"><a href="Image/Untitled%208.png"><img style="width:576px" src="Image/Untitled%208.png"/></a></figure></div></p><p id="df1512b6-d8db-497d-9938-c636755bbadd" class="">
+</p><p id="3e4d468e-78e9-4d40-8427-49d7a65daa99" class=""><strong>Running Totals or dynamic summation</strong><div class="indented"><p id="cab77497-8c15-418d-885a-fb70e2b57e4a" class="">Use the below logic to achieve Running totals:<br/>set a = sum(invoice_amt)<br/></p><p id="99ad16d8-b656-4a22-af3d-36a0bbdbe1d8" class="">set b = sum(outstanding_amt)</p><p id="1c50b9bd-09f8-4364-88fd-47e962c84eeb" class="">set c = get a  + get b</p><p id="6ae7079a-b746-4022-89ff-d16d936a4f06" class="">get c</p><p id="4cec0e90-4efd-442b-a09b-10f40955eeb4" class="">
+</p><p id="8f2b2a0e-967b-4c68-917b-24622c7baa60" class=""><code>&lt;?xdoxslt:set_variable($_XDOCTX,&#x27;A&#x27;,sum(INVOICE_AMOUNT))?&gt;</code></p><p id="428f863c-1c08-45c0-a1c8-4379d6c7ed41" class=""><code>&lt;?xdoxslt:set_variable($_XDOCTX,&#x27;B&#x27;sum(OUTSTANDING_AMOUNT))?&gt;</code></p><p id="bda62384-0dbb-4351-9b53-494b37bc241f" class=""><code>&lt;?xdoxslt:set_variable($_XDOCTX,&#x27;C&#x27;, xdoxslt:get_variable($_XDOCTX,&#x27;A&#x27;) + xdoxslt:get_variable($_XDOCTX,&#x27;B&#x27;))?&gt;</code></p><p id="09e535ac-b7e1-4f24-8446-765ee673a2a9" class=""><code>&lt;?format-NUMBER:xdoxslt:get_variable($_XDOCTX,&#x27;C);&#x27;G999D99&#x27;?&gt;</code></p><figure id="4e99d7e2-c64f-48c6-9e91-7a47e45e2890" class="image"><a href="Image/Untitled%209.png"><img style="width:530px" src="Image/Untitled%209.png"/></a></figure></div></p><p id="310c0640-2f35-4c45-818a-aa1866c30a31" class=""><strong>Condition formatting:</strong><div class="indented"><figure id="d0a8dac3-e90c-4fbb-bce3-5989b4c2094f" class="image"><a href="Image/Untitled%2010.png"><img style="width:600px" src="Image/Untitled%2010.png"/></a></figure><p id="940fef4e-db65-4ae4-b5d7-7ae4a0c4f6e1" class="">When ever amount is greater than some particular amount. We need to highlight with one color.</p><p id="39a2746d-73b1-4d3a-9fdc-73a525f0973e" class=""><code>&lt;?if:INVOICE_ AMOUNT&gt;5000?&gt;</code><div class="indented"><p id="8dbadf9a-3c07-487c-9694-ac9bec6dfa53" class=""><code>&lt;xsl:attribute xdofo:ctx=&quot;block&quot; name=&quot;background-color&quot;&gt;red&lt;/xsl:attribute&gt;</code></p></div></p><p id="210d4461-fe03-489e-b127-9608536ad9ec" class=""><code>&lt;?endif?&gt;</code></p></div></p><p id="b542f66a-2120-49c3-bbed-68f925101c80" class=""><div class="indented"><p id="6eeba759-fa07-43c8-b33b-05188526d3a4" class=""><strong>Bold Character:</strong></p><p id="59062b83-f3c9-41aa-a703-39dd50016931" class=""><code>&lt;?if:INVOICE_AMOUNT&gt;5000?&gt;</code><div class="indented"><p id="125dcf5f-b5d6-4794-964f-1a6117e545e0" class=""><code>&lt;xsl:attribute xdofo:ctx=&quot;block&quot; name=&quot;font-weight&quot;&gt;bold&lt;/xsl:attribute&gt;</code></p></div></p><p id="da929d82-32ba-4d59-9371-18f8f6390eb0" class=""><code>&lt;?endif?&gt;</code></p></div></p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 5</mark></summary><div class="indented"><p id="b1858c03-76ae-43f0-bd00-dfe4920acb2b" class=""><strong></strong></p><p id="894ee604-aad5-4261-b3bf-cec20c1e197a" class=""><strong>How to submit xml publisher report from PLSQL:</strong></p><ul id="8fc16ef1-6072-4d85-b51b-ee3806ae829e" class="bulleted-list"><li style="list-style-type:disc">errbuf to return any error messages, and retcode to return completion status.</li></ul><ul id="747a4307-fa73-4174-972a-ddc1f84a9d02" class="bulleted-list"><li style="list-style-type:disc">The parameter retcode returns 0 for success, 1 for success with warnings, and 2 for error<strong>.</strong></li></ul><ul id="b25ec818-a635-48e6-83bc-81cfc66d626d" class="bulleted-list"><li style="list-style-type:disc"><code>fnd_request.ADD_LAYOUT <br/>fnd_request.SUBMIT_REPORT<br/></code><p id="7f257d93-b3ce-4cec-b51a-2e32aa9e4cd8" class=""><mark class="highlight-default">retcode - 0 - normal, 1 - warning, 2 - error</mark></p><p id="544ca9ea-38a7-4cac-9f41-857f4ee24b7e" class=""><mark class="highlight-default">unix scripting - 0 normal, 1 - error, 2 - warning, 3 - fatal error</mark></p><p id="043f33a7-f511-4900-ab52-f262953ca5c0" class="">
+</p></li></ul><p id="527d420a-fa04-4370-a113-416b651174be" class="">S<strong>teps:</strong></p><ul id="a690a3c1-3bea-4cc1-a59e-c3391ba5ec3d" class="bulleted-list"><li style="list-style-type:disc">create procedure (DCS_VEN_INFO_PRC)</li></ul><ul id="32c9fe98-b6a7-4c23-9edd-ae76fd0943ea" class="bulleted-list"><li style="list-style-type:disc">submit_request - Oracle seeded packaged procedure, one of the API given and provided by oracle to submit a request</li></ul><ul id="01218b9d-8608-4ad4-bf47-51bd314b8a26" class="bulleted-list"><li style="list-style-type:disc">package specification - submit_request</li></ul><p id="7827db85-866c-474c-8cba-ef08a0ebba7e" class="">--  application - IN type parameter --&#x27;XXDCS&#x27;</p><p id="5cf2178a-6aab-41c0-b5e6-8a392bd46874" class="">--  Program - &#x27;DCS_VEN_INFO&#x27;</p><p id="54534bbc-1988-4f00-811b-97ab08f0a395" class="">--  Description - &#x27;DCS_VEN_INFO&#x27;</p><p id="42240cf6-ff6a-4001-8d4e-06a319540108" class="">--  start_time - Null</p><p id="211cfe31-59e9-4ac4-99f1-d3e7b646ff3e" class="">--  sub_request - False</p><p id="f2409bab-5956-44d9-9172-3bcc0bcd3241" class="">--  Arguments are nothing but parameters<div class="indented"><p id="7965cef1-edf5-4087-885c-bf0163038274" class="">Note: If you have non-mandatory parameter you can pass null and to pass null no need to write anything</p></div></p><ul id="34cde864-2416-4432-b089-f2b4d11cb377" class="bulleted-list"><li style="list-style-type:disc">package specigication - add_layout</li></ul><p id="d5432582-ad28-462c-8940-a80dbef1eedb" class="">--    Template_APPL_Name      - Template Application Short name. -- &#x27;XXDCS&#x27;</p><p id="8b41607c-6801-4605-8d93-c7a7f8c44125" class="">--    Template_code                   - Template code -- &#x27;DCS_VEN_INFO&#x27;</p><p id="652cc6d6-f888-4737-9c78-fb024c07e82a" class="">--    Template_Language           - Template File language (iso value) -- &#x27;en&#x27; -- ENGLISH&#x27;</p><p id="8ef9696a-c078-43a4-badd-7f36e6862f6d" class="">--    Template_Territory              - Template File Territory (iso value) -- &#x27;US&#x27;</p><p id="966a9f35-46ca-456e-b410-a56c427f46cc" class="">--    Output Format                     - Output Format -- &#x27;EXCEL&#x27;</p><ul id="cf0674f1-cece-447d-a293-bc61271e0390" class="bulleted-list"><li style="list-style-type:disc">Now we have both concurrent program as well as layout</li></ul><ul id="028bc39c-0328-4955-b756-7e352f917764" class="bulleted-list"><li style="list-style-type:disc">if get submitted -- enter in log file -- successfully submitted</li></ul><ul id="b831031f-29dd-44f1-b5ec-c5cc12b91d52" class="bulleted-list"><li style="list-style-type:disc">else -- enter in log file -- not submitted</li></ul><ul id="83fcff7b-6c8b-431a-bd89-21cb42b4e942" class="bulleted-list"><li style="list-style-type:disc">In oracle whenever program is supposed to be called through concurrent program 2 parameters are mandatory i.e errbuf ,retcode</li></ul><p id="801de613-9dbb-499c-bce2-563160f95231" class=""><strong>Concurrent program registration steps</strong></p><ul id="9638a2ac-2764-4059-9f60-209d848612a2" class="bulleted-list"><li style="list-style-type:disc">Executable</li></ul><ul id="9583c70c-3bdd-4024-842c-af0d183ff5ad" class="bulleted-list"><li style="list-style-type:disc">concurrent program</li></ul><ul id="42b86100-b8fb-418b-aaef-4b1595c16bcf" class="bulleted-list"><li style="list-style-type:disc">attach to request group</li></ul><ul id="b72829a1-7fa9-4dc1-a2b3-fda61de8a1bf" class="bulleted-list"><li style="list-style-type:disc">submit from responsibility</li></ul><p id="785cc77c-da5f-4c4d-8909-cb00727c329a" class="">
+</p><p id="88527b78-39e8-4216-b1d2-74fba8f69e62" class="block-color-gray_background">Timestamp 15:05 : Procedure Name should not have underscore</p><p id="fe67c2a3-0cc2-4d57-ad8e-0466145a972c" class="">
+</p><p id="fb94124f-d69b-45ef-92f8-94aff2ecfa1f" class=""><strong>Multiple language using xml report</strong></p><p id="1433f274-1455-4e0e-8d13-5ac976050ff0" class="">Oracle gives a very straightforward method to create multilingual reports if we use XML Publisher to design the reports. We no longer need to create very different report layouts for the same report to be used across languages. Once a language has been installed in addition to the default language, English, then we only need to assign the layout to the language and the characteristics of the language will determine how the output will look like.</p><p id="be728148-a33e-4bcc-808c-a3825f8b6bf2" class=""><strong>STEP 1: Check enabled languages</strong><div class="indented"><p id="eb698ccd-f22f-4a97-be7c-c2350321b18b" class="">Responsibility: System Administrator &gt; Install &gt; Languages</p><p id="f51cbe92-4233-4d6b-82bc-2b25bd47afcf" class="">Hit Ctrl+F11 to query for all the records</p><p id="e7ebc475-aa8b-42c3-aed1-f7f874b17e6c" class="">All the languages are displayed. Now scroll to the right.</p><p id="467181b9-7534-42f6-8b28-1f26218a6393" class="">You will notice that US English is the base language. This is true for all Oracle Apps installations. Along with English, Arabic (language code AR) in the second line is installed.</p><p id="153166a0-6f3f-4824-96be-f8ac31107ccb" class="">You will notice the languages on the Oracle home page.</p><p id="2c27d2df-3afd-4af1-a8de-f4649440152c" class="">You can see the option of languages at the bottom as Spanish is installed for this Oracle instance. This means we can have English reports as well as Spanish reports running in this instance.</p></div></p><p id="10793b77-a28e-4fcc-911a-e55e8139da4f" class="">
+</p><ul id="d87976ca-797b-4f4d-9499-d3be699b86df" class="bulleted-list"><li style="list-style-type:disc">created data template</li></ul><ul id="7715ed9e-0939-492b-8708-75eecff3678b" class="bulleted-list"><li style="list-style-type:disc">create date definition and upload data template</li></ul><ul id="f3973299-cbd3-4c13-ade4-b6d1564994b1" class="bulleted-list"><li style="list-style-type:disc">create concurrent program ,attach xdodtexe, type xml ,enter parameter</li></ul><ul id="c7577bc2-94fa-4c24-bddd-c0ff0ce2a247" class="bulleted-list"><li style="list-style-type:disc">attach to request group</li></ul><ul id="d28ce50e-cf6b-4342-b6d9-ba00a7b9d58d" class="bulleted-list"><li style="list-style-type:disc">submit from responsibility</li></ul><ul id="557931bf-2a25-450e-a385-01883f23a753" class="bulleted-list"><li style="list-style-type:disc">save output as .xml file</li></ul><ul id="89aa5201-33cf-4b8b-a0ed-f75844594b9c" class="bulleted-list"><li style="list-style-type:disc">create rtf based on the output file</li></ul><ul id="f3a8a98f-2ab0-4735-b294-c8e3377cbeb5" class="bulleted-list"><li style="list-style-type:disc">create template in xml publisher administrator</li></ul><p id="b398ff38-4115-4278-b636-f3334d617f42" class="">while create template enable translatable</p><p id="1e84de3a-75a8-4928-a44d-206b280c3830" class=""><strong>export translation file</strong></p><p id="21125983-18e3-4ce1-9773-d4a0b73ee57b" class="">modify  target language like below.</p><p id="5f512ed9-060c-4b1f-9f1c-f568ccf0d1b9" class=""><strong>&lt;file source-language=&quot;en-ES&quot;&gt;</strong></p><p id="32c2fe87-0053-4eaa-8db2-6feb905da9e7" class=""><strong>go to google and search with column headings into spanish.include translated  names into target language .save file with  another name .</strong></p><p id="4c5b0d00-0fdf-4c4a-8a4c-8e27c5f5797a" class=""><strong>upload translation</strong></p><p id="81ac3200-c872-47e3-a387-88225f1775df" class="">Enable Template</p><p id="ba7134b1-1a65-4914-aeb9-69969abef2a6" class=""><strong>Note : Source file is in english. its only one. but we can translate to many other languages.</strong></p><p id="038548ca-f8ef-41a5-a669-42017053350c" class="">9) Go to responsibility &gt; view &gt; reqeust &gt; submit request.choose program</p><p id="af0bd349-c138-4b62-8372-3359e0b56e76" class="">click on options</p><p id="ddbf855d-fbff-4877-8973-795b0502e11a" class="">choose language specific template.</p><p id="e12a4a13-163d-42e4-a076-f5342af4cfa1" class="">submit report</p><p id="15ea18ec-c8c8-4b6f-9c56-dc4dc8bd7420" class="">you will headings into spanish language.</p><p id="2368044a-f011-45bc-9eee-9e3454c5cd04" class=""><strong>Note : to see data also into Spanish language, go to oracle apps home page .choose spanish language .submit report it will give output in spanish.</strong></p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 6</mark></summary></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 7</mark></summary></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><mark class="highlight-red">XML Publisher Part 8</mark></summary></details></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Finding the responsibility name of a user.</summary><div class="indented"><figure id="cad47004-0f58-4112-8a89-11b4888d0a9e" class="image"><a href="Image/Untitled%2011.png"><img style="width:769px" src="Image/Untitled%2011.png"/></a></figure><figure id="a9e5012a-bb8b-4736-a4d2-df158bdf68bc" class="image"><a href="Image/Untitled%2012.png"><img style="width:969px" src="Image/Untitled%2012.png"/></a></figure><figure id="16752f0d-8405-4b17-acc0-1d773a123f70" class="image"><a href="Image/Untitled%2013.png"><img style="width:912px" src="Image/Untitled%2013.png"/></a></figure></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
